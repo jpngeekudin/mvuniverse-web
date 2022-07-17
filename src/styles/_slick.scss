@@ -1,0 +1,5 @@
+.slick-prev, .slick-next {
+  &::before {
+    color: rgba(var(--bs-primary-rgb), .8);
+  }
+}
