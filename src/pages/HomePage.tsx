@@ -2,6 +2,7 @@ import CardNft from 'components/CardNft'
 import React from 'react'
 import Navbar from '../components/Navbar'
 import Slider from 'react-slick';
+import CardNft2 from 'components/CardNft2';
 
 export default function HomePage() {
   return (
@@ -24,7 +25,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section style={{ marginBottom: '2rem' }}>
+      <section style={{ marginBottom: '3rem' }}>
         <div className="d-flex align-items-center mb-4" style={{ gap: 20 }}>
           <div className="fw-bold" style={{ fontSize: '1.5rem' }}>Hot Collections</div>
           <button className="btn btn-primary px-3 rounded-pill">See All Collections</button>
@@ -62,6 +63,24 @@ export default function HomePage() {
             </div>
           ))}
         </div>
+      </section>
+
+      <section style={{ marginBottom: '3rem' }}>
+        <img src={require('assets/images/home/home-highlight.png')} alt="" className='w-100' />
+      </section>
+
+      <section style={{ marginBottom: '3rem' }}>
+        <div className="d-flex align-items-center mb-4" style={{ gap: 20 }}>
+          <div className="fw-bold" style={{ fontSize: '1.5rem' }}>Recent Listed</div>
+          <button className="btn btn-primary px-3 rounded-pill">See All</button>
+        </div>
+        <Slider dots={false} infinite slidesToScroll={1} slidesToShow={4}>
+          {[0,1,2,3,4,5,6,7].map(i => (
+            <div className='px-3 my-3'>
+              <CardNft2/>
+            </div>
+          ))}
+        </Slider>
       </section>
     </div>
   )
