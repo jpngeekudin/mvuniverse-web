@@ -8,7 +8,7 @@ export default function HomePage() {
     <div className='container pt-4'>
       <Navbar/>
 
-      <section style={{ marginTop: '2rem', marginBottom: '2rem' }}>
+      <section style={{ marginTop: '3rem', marginBottom: '3rem' }}>
         <div className="d-flex align-items-center justify-content-between">
           <div style={{ width: 450 }}>
             <div className="text-primary mb-2" style={{ fontSize: '1.8rem', lineHeight: 1, fontWeight: 900 }}>Discover, collect, and sell an Authentic Unique NFTs</div>
@@ -25,17 +25,43 @@ export default function HomePage() {
       </section>
 
       <section style={{ marginBottom: '2rem' }}>
-        <div className="d-flex align-items-center mb-3" style={{ gap: 20 }}>
+        <div className="d-flex align-items-center mb-4" style={{ gap: 20 }}>
           <div className="fw-bold" style={{ fontSize: '1.5rem' }}>Hot Collections</div>
           <button className="btn btn-primary px-3 rounded-pill">See All Collections</button>
         </div>
         <Slider arrows dots={false} infinite slidesToShow={3} slidesToScroll={1}>
           {[0,1,2,3,4,5].map(i => (
-            <div className='px-3'>
+            <div className='px-3 my-3'>
               <CardNft hot/>
             </div>
           ))}
         </Slider>
+      </section>
+
+      <section style={{ marginBottom: '3rem' }}>
+        <div className="d-flex align-items-center mb-4" style={{ gap: 20 }}>
+          <div className="fw-bold" style={{ fontSize: '1.5rem' }}>Most Hype</div>
+          <button className="btn btn-primary px-3 rounded-pill">See Hype</button>
+        </div>
+        <div className="row row-cols-3 g-4">
+          {[0,1,2,3,4,5,6,7,8].map(i => (
+            <div>
+              <div className="d-flex align-items-center" style={{ gap: 10 }}>
+                <div className='fw-bold' style={{ fontSize: '1.5rem' }}>{i + 1}</div>
+                <img src="https://picsum.photos/1000" alt="" className='rounded-circle' style={{ height: 70 }} />
+                <div style={{ flexGrow: 1 }}>
+                  <div className="fw-bold" style={{ fontSize: '1.2rem' }}>Just Ape</div>
+                  <div className='mb-2'>Just Ape</div>
+                  <div className='text-primary' style={{ fontSize: '.8rem' }}>Price: 300 ◎</div>
+                </div>
+                <div className='text-end'>
+                  <div className="fw-bold text-success mb-3">+51.54%</div>
+                  <div className="text-primary" style={{ fontSize: '.8rem' }}>◎ 2,500,000</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
     </div>
   )
