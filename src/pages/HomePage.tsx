@@ -3,10 +3,22 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import Slider from 'react-slick';
 import CardNft2 from 'components/CardNft2';
+import { menuConfig, profileMenuConfig } from 'configs/MenuConfig';
+import styled from 'styled-components';
+
+const FooterMenuItem = styled.div`
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 10px;
+
+  &:hover {
+    color: var(--bs-success);
+  }
+`;
 
 export default function HomePage() {
   return (
-    <div className='container pt-4'>
+    <div className='container py-4'>
       <Navbar/>
 
       <section style={{ marginTop: '3rem', marginBottom: '3rem' }}>
@@ -69,7 +81,7 @@ export default function HomePage() {
         <img src={require('assets/images/home/home-highlight.png')} alt="" className='w-100' />
       </section>
 
-      <section style={{ marginBottom: '3rem' }}>
+      <section style={{ marginBottom: '5rem' }}>
         <div className="d-flex align-items-center mb-4" style={{ gap: 20 }}>
           <div className="fw-bold" style={{ fontSize: '1.5rem' }}>Recent Listed</div>
           <button className="btn btn-primary px-3 rounded-pill">See All</button>
@@ -82,6 +94,79 @@ export default function HomePage() {
           ))}
         </Slider>
       </section>
+
+      <section style={{ marginBottom: '3rem' }}>
+        <div className="text-center mb-5">
+          <div className="fw-bold" style={{ fontSize: '5rem' }}>MVUniverse</div>
+          <div className="fw-bold" style={{ fontSize: '1.5rem' }}>"Anyone can learn from this marketplace."</div>
+        </div>
+        <div className="row row-cols-3 gx-5" style={{ marginBottom: '5rem' }}>
+          <div className='text-center'>
+            <div className="fw-bold" style={{ fontSize: '3rem' }}>Simplest</div>
+            <div>Simplest place for NFT beginner to be part of step one to the Metaverse</div>
+          </div>
+          <div className='text-center'>
+            <div className="fw-bold" style={{ fontSize: '3rem' }}>Fastest</div>
+            <div>Fastest to sell your NFT, or be famous NFT Project</div>
+          </div>
+          <div className='text-center'>
+            <div className="fw-bold" style={{ fontSize: '3rem' }}>Easiest</div>
+            <div>Easiest marketplace to use as an artist or even if youre a NFT collector</div>
+          </div>
+        </div>
+        <div className="row row-cols-2">
+          <div>
+            <div style={{ width: 500 }}>
+              <div className="fw-bold mb-3" style={{ fontSize: '3rem' }}>What is a MVUniverse?</div>
+              <div className="text-success fw-bold mb-3" style={{ fontSize: '1.5rem' }}>The Best Marketplace for NFTs art</div>
+              <div className="mb-4">Our Marketplace is the best place for you as an artist to sell your arts and for you too if you are the collector of authentic rare arts that gives you a million benefits!</div>
+              <button className="btn btn-success btn-lg px-5 fw-bold">Find out more</button>
+            </div>
+          </div>
+          <div className="row row-cols-3">
+            <div>
+              <div className="fw-bold mb-2 fs-3">Marketplace</div>
+              {menuConfig.find(m => m.name === 'Explore')?.children.map(child => (
+                <FooterMenuItem>{child.name}</FooterMenuItem>
+              ))}
+            </div>
+            <div>
+              <div className="mb-4">
+                <div className="fw-bold mb-2 fs-3">My Account</div>
+                {profileMenuConfig.map(m => (
+                  <FooterMenuItem>{m.name}</FooterMenuItem>
+                ))}
+              </div>
+              <div>
+                <div className="fw-bold mb-2 fs-3">Stats</div>
+                {menuConfig.find(m => m.name === 'Stats')?.children.map(child => (
+                  <FooterMenuItem>{child.name}</FooterMenuItem>
+                ))}
+              </div>
+            </div>
+            <div>
+              <div className="fw-bold fs-2 mb-2">Company</div>
+              <FooterMenuItem>About</FooterMenuItem>
+              <FooterMenuItem>Career</FooterMenuItem>
+              <FooterMenuItem>Venture</FooterMenuItem>
+              <FooterMenuItem>Grants</FooterMenuItem>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* footer */}
+      <div className='d-flex justify-content-end' style={{ gap: 20 }}>
+        <div className="fw-bold">Join the community</div>
+        <a href="#" className='text-black fw-bold'>
+          <i className="fab fa-discord me-2"></i>
+          Discord
+        </a>
+        <a href="#" className='text-black fw-bold'>
+          <i className="fab fa-twitter me-2"></i>
+          Twitter
+        </a>
+      </div>
     </div>
   )
 }
