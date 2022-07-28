@@ -5,6 +5,7 @@ import { Dropdown } from 'react-bootstrap';
 import LogoSun from 'assets/images/navbar/navbar-sun.svg';
 import LogoAvatar from 'assets/images/navbar/navbar-avatar.svg';
 import { menuConfig, profileMenuConfig } from 'configs/MenuConfig';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   const menuList = menuConfig;
@@ -12,8 +13,10 @@ export default function Navbar() {
 
   return (
     <div className='navbar'>
-      <img src={LogoMarketplace} alt="" className='brand' />
-      <div className='brand'>MVUniverse</div>
+      <Link to={'/'} className='d-flex align-items-center' style={{ gap: 10 }}>
+        <img src={LogoMarketplace} alt="" className='brand' />
+        <div className='brand'>MVUniverse</div>
+      </Link>
       <div className='search' style={{ flexGrow: 1 }}>
         <div className="prefix">
           <i className="fa fa-search"></i>

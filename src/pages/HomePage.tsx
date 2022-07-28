@@ -18,9 +18,7 @@ const FooterMenuItem = styled.div`
 
 export default function HomePage() {
   return (
-    <div className='container py-4'>
-      <Navbar/>
-
+    <>
       <section style={{ marginTop: '3rem', marginBottom: '3rem' }}>
         <div className="d-flex align-items-center justify-content-between">
           <div style={{ width: 450 }}>
@@ -167,6 +165,6 @@ export default function HomePage() {
           Twitter
         </a>
       </div>
-    </div>
+    </>
   )
 }
