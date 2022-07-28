@@ -1,3 +1,4 @@
+import Case from 'case';
 import React, { useState } from 'react'
 import { Dropdown } from 'react-bootstrap'
 import styled from 'styled-components';
@@ -7,26 +8,51 @@ export default function HypePage() {
   const [filterCategories, setFilterCategories] = useState<string>('All Categories');
   const [filterChains, setFilterChains] = useState<string>('All Chains');
 
+  const filterTimeframeList = ['24h', '7d', '30d', 'All time'];
+  const filterChainsList = ['All Chains', 'SOL', 'ETH'];
+  const filterCategoriesList = [
+    'all-categories',
+    'new',
+    'art',
+    'collectibles',
+    'fashion',
+    'hot-collections',
+    'music',
+    'photography',
+    'utility',
+    'domain-names'
+  ];
+
   return (
     <div style={{ paddingTop: '6rem' }}>
       <div className="text-center" style={{ marginBottom: '8rem' }}>
         <div className="fw-bold mb-2" style={{ fontSize: '4rem' }}>Hype NFT</div>
-        <div className='mb-4' style={{ fontSize: '1.5rem', fontWeight: 400 }}>The most hype NFTs on MVuniverse, ranked by volume, floor price and other statistics.</div>
+        <div className='mb-4' style={{ fontSize: '1.5rem', fontWeight: 400 }}>
+          The most hype NFTs on MVuniverse, ranked by volume, floor price and other statistics.
+        </div>
         <div className='d-flex justify-content-center' style={{ gap: 20 }}>
           <Dropdown>
             <Dropdown.Toggle as={filterDropdownButton}>
               {filterTimeframe}
             </Dropdown.Toggle>
             <Dropdown.Menu>
-              <Dropdown.Item>24h</Dropdown.Item>
+              {filterTimeframeList.map(timeframe => (
+                <Dropdown.Item onClick={() => setFilterTimeframe(timeframe)}>
+                  {timeframe}
+                </Dropdown.Item>
+              ))}
             </Dropdown.Menu>
           </Dropdown>
           <Dropdown>
             <Dropdown.Toggle as={filterDropdownButton}>
-              {filterCategories}
+              {Case.title(filterCategories)}
             </Dropdown.Toggle>
             <Dropdown.Menu>
-              <Dropdown.Item>All Categories</Dropdown.Item>
+              {filterCategoriesList.map(category => (
+                <Dropdown.Item onClick={() => setFilterCategories(category)}>
+                  {Case.title(category)}
+                </Dropdown.Item>
+              ))}
             </Dropdown.Menu>
           </Dropdown>
           <Dropdown>
@@ -34,7 +60,11 @@ export default function HypePage() {
               {filterChains}
             </Dropdown.Toggle>
             <Dropdown.Menu>
-              <Dropdown.Item>All Chains</Dropdown.Item>
+              {filterChainsList.map(chain => (
+                <Dropdown.Item onClick={() => setFilterChains(chain)}>
+                  {chain}
+                </Dropdown.Item>
+              ))}
             </Dropdown.Menu>
           </Dropdown>
         </div>
