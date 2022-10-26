@@ -1,0 +1,15 @@
+textarea.form-control,
+select.form-control,
+input.form-control {
+  background-color: var(--bs-gray-200);
+  border-color: var(--bs-gray-400);
+  border-width: 2px;
+
+  &:focus {
+    background-color: var(--bs-gray-200);
+  }
+}
+
+textarea.form-control {
+  resize: none;
+}
